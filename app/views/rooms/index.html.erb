@@ -3,7 +3,7 @@
 
 
 <% @rooms.each do |room| %>
-    <p> <%= room.name %> </p>
+    <p> <%= link_to room.name, room_messages_path(room.id) %> </p>
 <% end %>
 
 <%= form_for @room do |f| %>

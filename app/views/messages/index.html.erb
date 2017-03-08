@@ -1,0 +1,12 @@
+<h1> Room : <%= @room.name %> </h1>
+
+<% @messages.each do |message| %>
+    <p> <%= message.content %> </p>
+<% end %>
+
+
+<%= form_for [@room, @message] do |f| %>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    <%= f.submit %>
+<% end %>

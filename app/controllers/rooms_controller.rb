@@ -14,6 +14,9 @@ class RoomsController < ApplicationController
         redirect_to rooms_path
     end
 
+    def show
+        @room = Room.find_by_id(params[:id])
+    end
     private
 
     def room_params
