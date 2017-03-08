@@ -4,6 +4,11 @@ class MessagesController < ApplicationController
     @room = Room.find_by_id(params[:room_id])
     @message = @room.messages.build
     @messages = @room.messages
+
+    respond_to do |format|
+      format.html
+      format.json {render json: {messages: @messages} }
+    end
   end
 
   def create
