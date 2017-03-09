@@ -18,13 +18,8 @@ window.updateMessagesViaJSON = function() {
       console.log(key, val)
     });
   });
-
-  location.reload(true);
 }
 
 window.updateMessagesViaJS = function() {
-  $.getScript("/app/views/messages/create.js.erb", function (data) {
-    
-  });
-  
+  $.ajax({ url: window.location.pathname, dataType: 'script' });
 }

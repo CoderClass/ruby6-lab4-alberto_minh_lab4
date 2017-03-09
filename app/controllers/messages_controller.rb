@@ -2,8 +2,8 @@ class MessagesController < ApplicationController
 
   def index
     @room = Room.find_by_id(params[:room_id])
-    @message = @room.messages.build
     @messages = @room.messages
+    @message = @room.messages.build
 
     respond_to do |format|
       format.html
@@ -24,7 +24,7 @@ class MessagesController < ApplicationController
     
     respond_to do |format|
       format.html {redirect_to room_messages_path(@room) }
-      #format.js
+      format.js 
     end
   end
 
