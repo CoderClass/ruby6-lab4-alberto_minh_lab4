@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       format.html
       format.json {render json: {messages: @messages} }
+      format.js
     end
   end
 
@@ -20,7 +21,11 @@ class MessagesController < ApplicationController
     else
       flash[:error] = @message.errors.full_messages.to_sentence
     end
-    redirect_to room_messages_path(@room)
+    
+    respond_to do |format|
+      format.html {redirect_to room_messages_path(@room) }
+      #format.js
+    end
   end
 
   private
